@@ -9,7 +9,6 @@ public class MoleBehaviour : MonoBehaviour
     private float _upDiff = 3f;
     private float _hideDuration = 0;
     private float _movingDuration = 1;
-    private bool _isHidden = false;
 
     private Tween _currentTween;
 
@@ -23,25 +22,33 @@ public class MoleBehaviour : MonoBehaviour
     public void RiseUp()
     {
         _currentTween?.Kill();
-        // _currentTween = transform.DOLocalMove(_upPose, _upDuration);
         _currentTween = transform.DOLocalMoveY(transform.localPosition.y + _upDiff, _movingDuration);
+        StartCoroutine(Wait(1f, false));
     }
 
     public void Hide()
     {
         _currentTween?.Kill();
         _currentTween = transform.DOLocalMove(_hiddenPose, _movingDuration);
+        StartCoroutine(Wait(1f, true));
     }
 
     public void Hit()
     {
         _currentTween?.Kill();
         _currentTween = transform.DOLocalMove(_hiddenPose, _hideDuration);
+        StartCoroutine(Wait(1f, true));
     }
 
-    private IEnumerator Wait(float delay)
+    private IEnumerator Wait(float delay, bool hidden)
     {
-
+        yield return new WaitForSeconds(delay);
+        if(hidden)
+        {
+            MoleGame gameManager = GetComponentInParent<MoleGame>();
+            gameManager.DrawMole();
+        }
+        else Hide();
     }
 
 }

@@ -10,12 +10,12 @@ public class MoleGame : MonoBehaviour
         GameStart();
     }
 
-    private void GameStart()
+    public void GameStart()
     {
         DrawMole();
     }
 
-    private void DrawMole()
+    public void DrawMole()
     {
         int index;
         index = Random.Range(0, moles.Count);
