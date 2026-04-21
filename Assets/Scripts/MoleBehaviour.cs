@@ -5,50 +5,69 @@ using DG.Tweening;
 public class MoleBehaviour : MonoBehaviour
 {
     private Vector3 _hiddenPose;
-    private Vector3 _upPose;
     private float _upDiff = 3f;
     private float _hideDuration = 0;
     private float _movingDuration = 1;
+    private float _waitTime = 0.2f;
 
     private Tween _currentTween;
+    private MoleGame _gameManager;
+
+    private bool _isUp = false;
 
     private void Start()
     {
         _hiddenPose = transform.localPosition;
-        _upPose = new Vector3(transform.localPosition.x, transform.localPosition.y + _upDiff, transform.localPosition.z);
-        Debug.Log($"current: {_hiddenPose}, up: {_upPose}");
+        _gameManager = GetComponentInParent<MoleGame>();
     }
 
     public void RiseUp()
     {
         _currentTween?.Kill();
-        _currentTween = transform.DOLocalMoveY(transform.localPosition.y + _upDiff, _movingDuration);
-        StartCoroutine(Wait(1f, false));
+        _currentTween = transform.DOLocalMoveY(transform.localPosition.y + _upDiff, _movingDuration)
+            .OnComplete(() =>
+            {
+                StartCoroutine(Wait(_waitTime, false));
+            });
+        _isUp = true;
     }
 
-    public void Hide()
+    public void Hide(float hidespeed)
     {
         _currentTween?.Kill();
-        _currentTween = transform.DOLocalMove(_hiddenPose, _movingDuration);
-        StartCoroutine(Wait(1f, true));
+        _currentTween = transform.DOLocalMove(_hiddenPose, hidespeed).OnComplete(() =>
+        {
+            StartCoroutine(Wait(_waitTime, true));
+        });
     }
 
     public void Hit()
     {
         _currentTween?.Kill();
-        _currentTween = transform.DOLocalMove(_hiddenPose, _hideDuration);
-        StartCoroutine(Wait(1f, true));
+        if (_isUp)
+        {
+            _gameManager.GetPoint();
+            Hide(_hideDuration);
+        }
     }
 
     private IEnumerator Wait(float delay, bool hidden)
     {
         yield return new WaitForSeconds(delay);
-        if(hidden)
+        if (hidden)
         {
-            MoleGame gameManager = GetComponentInParent<MoleGame>();
-            gameManager.DrawMole();
+            _isUp = false;  
+            _gameManager.DrawMole();
         }
-        else Hide();
+        else Hide(_movingDuration);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("MoleHammer"))
+        {
+            Hit();
+        }
     }
 
 }
