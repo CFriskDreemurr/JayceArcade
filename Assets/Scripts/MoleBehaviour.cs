@@ -1,48 +1,47 @@
 using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class MoleBehaviour : MonoBehaviour
 {
-    [SerializeField] private float yDifference;
-    [SerializeField] private float moleSpeed;
-    [SerializeField] private float waitingTime;
-
     private Vector3 _hiddenPose;
     private Vector3 _upPose;
+    private float _upDiff = 3f;
+    private float _hideDuration = 0;
+    private float _movingDuration = 1;
+    private bool _isHidden = false;
+
+    private Tween _currentTween;
 
     private void Start()
     {
-        _hiddenPose = transform.position;
-        _upPose = new Vector3(transform.position.x, transform.position.y + yDifference, transform.position.z);
+        _hiddenPose = transform.localPosition;
+        _upPose = new Vector3(transform.localPosition.x, transform.localPosition.y + _upDiff, transform.localPosition.z);
+        Debug.Log($"current: {_hiddenPose}, up: {_upPose}");
     }
 
     public void RiseUp()
     {
-        StopAllCoroutines();
-        StartCoroutine(MoveMole(_upPose, true));
+        _currentTween?.Kill();
+        // _currentTween = transform.DOLocalMove(_upPose, _upDuration);
+        _currentTween = transform.DOLocalMoveY(transform.localPosition.y + _upDiff, _movingDuration);
     }
 
     public void Hide()
     {
-        StopAllCoroutines();
-        StartCoroutine(MoveMole(_hiddenPose, false));
+        _currentTween?.Kill();
+        _currentTween = transform.DOLocalMove(_hiddenPose, _movingDuration);
     }
 
-    IEnumerator MoveMole(Vector3 target, bool up)
+    public void Hit()
     {
-        while(Vector3.Distance(transform.localPosition, target) > 0.01f)
-        {
-            transform.localPosition = Vector3.Lerp(transform.localPosition, target, Time.deltaTime * moleSpeed);
-            yield return null;
-        }
-        transform.localPosition = target;
-
-        if(up)
-        {
-            yield return new WaitForSeconds(waitingTime);
-            Hide();
-        }
+        _currentTween?.Kill();
+        _currentTween = transform.DOLocalMove(_hiddenPose, _hideDuration);
     }
 
+    private IEnumerator Wait(float delay)
+    {
+
+    }
 
 }
