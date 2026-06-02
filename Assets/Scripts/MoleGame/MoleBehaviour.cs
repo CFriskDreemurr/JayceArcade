@@ -64,7 +64,7 @@ public class MoleBehaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("MoleHammer"))
+        if(collision.gameObject.CompareTag("Hammer"))
         {
             Hit();
         }
