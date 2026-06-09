@@ -5,7 +5,7 @@ using DG.Tweening;
 public class MoleBehaviour : MonoBehaviour
 {
     private Vector3 _hiddenPose;
-    private float _upDiff = 3f;
+    private float _upDiff = 0.2f;
     private float _hideDuration = 0;
     private float _movingDuration = 1;
     private float _waitTime = 0.2f;
@@ -64,7 +64,7 @@ public class MoleBehaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("MoleHammer"))
+        if(collision.gameObject.CompareTag("Hammer"))
         {
             Hit();
         }
