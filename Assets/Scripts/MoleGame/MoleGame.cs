@@ -15,7 +15,7 @@ public class MoleGame : MonoBehaviour
 
     private int _points = 0;
     private int _previousMole;
-    private MoleBehaviour _cuurentActiveMole;
+    private MoleBehaviour _cuurentActiveMoles;
 
     private void Start()
     {
@@ -34,7 +34,7 @@ public class MoleGame : MonoBehaviour
     {
         while (true)
         {
-            while (_cuurentActiveMole != null) yield return null;
+            while (_cuurentActiveMoles != null) yield return null;
 
             int index;
             do
@@ -43,22 +43,22 @@ public class MoleGame : MonoBehaviour
             } while (index == _previousMole && moles.Count > 1);
 
             _previousMole = index;
-            _cuurentActiveMole = moles[index];
-            _cuurentActiveMole.RiseUp();
+            _cuurentActiveMoles = moles[index];
+            _cuurentActiveMoles.RiseUp();
 
             yield return new WaitForSeconds(riseTime);
 
             float startTime = Time.time;
             float moleWaitTime = Random.Range(minMoleWaitTime, maxMoleWaitTime);
-            while(_cuurentActiveMole != null && !_cuurentActiveMole.IsHit && (Time.time - startTime) < moleWaitTime)
+            while(_cuurentActiveMoles != null && !_cuurentActiveMoles.IsHit && (Time.time - startTime) < moleWaitTime)
             {
                 yield return null;
             }
 
-            if(_cuurentActiveMole != null)
+            if(_cuurentActiveMoles != null)
             {
-                _cuurentActiveMole.Hide(moleHideDuration);
-                _cuurentActiveMole = null;
+                _cuurentActiveMoles.Hide(moleHideDuration);
+                _cuurentActiveMoles = null;
             }
 
             yield return new WaitForSeconds(0.5f);
