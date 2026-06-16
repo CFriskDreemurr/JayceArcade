@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Anchor
   - MoleHammer
+  - Hammer
+  - Ringo
+  - Void
+  - Bottle
   layers:
   - Default
   - TransparentFX
