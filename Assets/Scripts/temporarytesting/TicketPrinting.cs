@@ -32,12 +32,12 @@ public class TicketPrinting : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            // 1. Spawn the ticket
+            // 1. Spawn the ticket exactly at the spawn point
             GameObject newTicket = Instantiate(ticketPrefab, spawnPoint.position, spawnPoint.rotation);
             Rigidbody ticketRb = newTicket.GetComponent<Rigidbody>();
 
-            // Push it forward out of the slot
-            ticketRb.AddForce(spawnPoint.forward * ejectionForce, ForceMode.Impulse);
+            // FREEZE IT: Make it kinematic so gravity and forces don't move it yet
+            ticketRb.isKinematic = true;
 
             // 2. Connect to the previous ticket if one exists
             if (lastSpawnedTicket != null)
@@ -45,24 +45,38 @@ public class TicketPrinting : MonoBehaviour
                 HingeJoint joint = newTicket.AddComponent<HingeJoint>();
                 joint.connectedBody = lastSpawnedTicket;
 
-                // IMPORTANT: Adjust the anchors based on your ticket model's size!
-                // This assumes the Z-axis is the length of your ticket.
-                joint.anchor = new Vector3(0, 0, 0.4f); // Top edge of the new ticket
-                joint.connectedAnchor = new Vector3(0, 0, -0.4f); // Bottom edge of the previous ticket
+                // Adjust these anchors based on your model's size
+                joint.anchor = new Vector3(0, 0, 0.5f);
+                joint.connectedAnchor = new Vector3(0, 0, -0.5f);
 
-                // Optional: Add limits to the joint so it doesn't spin 360 degrees
                 joint.useLimits = true;
                 JointLimits limits = new JointLimits { min = -45, max = 45 };
                 joint.limits = limits;
+
+                // UNFREEZE PREVIOUS: Now that they are perfectly linked, let the previous ticket fall
+                lastSpawnedTicket.isKinematic = false;
+
+                // Push the previous ticket forward out of the slot
+                lastSpawnedTicket.AddForce(spawnPoint.forward * ejectionForce, ForceMode.Impulse);
             }
 
-            // 3. Register the ticket to the chain and update the last spawned reference
+            // 3. Register the ticket to the chain
             currentTicketChain.Add(newTicket);
-            newTicket.GetComponent<Ticket>().machineReference = this; // Give the ticket a reference to this machine
+            newTicket.GetComponent<Ticket>().machineReference = this;
+
+            // Update the reference to this ticket
             lastSpawnedTicket = ticketRb;
 
-            // Wait before printing the next one
+            // Wait for the next ticket. The current ticket stays frozen at the slot, acting as the anchor.
             yield return new WaitForSeconds(printSpeed);
+        }
+
+        // 4. CLEANUP: Once printing is totally done, unfreeze the very last ticket 
+        // so the whole chain dangles freely from the machine instead of floating!
+        if (lastSpawnedTicket != null)
+        {
+            lastSpawnedTicket.isKinematic = false;
+            lastSpawnedTicket.AddForce(spawnPoint.forward * ejectionForce, ForceMode.Impulse);
         }
     }
 
