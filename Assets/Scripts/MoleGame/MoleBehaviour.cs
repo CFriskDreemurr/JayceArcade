@@ -4,67 +4,70 @@ using DG.Tweening;
 
 public class MoleBehaviour : MonoBehaviour
 {
-    private Vector3 _hiddenPose;
-    private float _upDiff = 0.2f;
-    private float _hideDuration = 0;
-    private float _movingDuration = 1;
-    private float _waitTime = 0.2f;
+    [SerializeField] private float upDistance = 0.2f;
+    [SerializeField] private float hideSpeed = 0.5f;
 
+    private Vector3 _hiddenPos;
+    private Vector3 _visiblePos;
     private Tween _currentTween;
-    private MoleGame _gameManager;
 
-    private bool _isUp = false;
+    public bool IsVisible { get; private set; } = false;
+    public bool IsHit { get; private set; } = false;
+
+    private MoleGame _gameManager;
 
     private void Start()
     {
-        _hiddenPose = transform.localPosition;
+        _hiddenPos = transform.localPosition;
+        _visiblePos = _hiddenPos + new Vector3(0, upDistance, 0);
         _gameManager = GetComponentInParent<MoleGame>();
+        
+        Hide(hideSpeed);
     }
 
     public void RiseUp()
     {
+        if (IsVisible) return;
+
+        IsVisible = true;
+        IsHit = false;
         _currentTween?.Kill();
-        _currentTween = transform.DOLocalMoveY(transform.localPosition.y + _upDiff, _movingDuration)
-            .OnComplete(() =>
-            {
-                StartCoroutine(Wait(_waitTime, false));
-            });
-        _isUp = true;
+
+        transform.localPosition = _hiddenPos;
+        _currentTween = transform.DOLocalMoveY(_visiblePos.y, 0.5f).SetEase(Ease.OutQuad);
     }
 
-    public void Hide(float hidespeed)
+    public void Hide(float duration)
     {
+        if (!IsVisible) return;
+
+        IsVisible = false;
+        IsHit = false;
         _currentTween?.Kill();
-        _currentTween = transform.DOLocalMove(_hiddenPose, hidespeed).OnComplete(() =>
+
+        _currentTween = transform.DOLocalMoveY(_hiddenPos.y, duration).OnComplete(() =>
         {
-            StartCoroutine(Wait(_waitTime, true));
+            _currentTween = null;
         });
     }
 
     public void Hit()
     {
-        _currentTween?.Kill();
-        if (_isUp)
-        {
-            _gameManager.GetPoint();
-            Hide(_hideDuration);
-        }
+        if (IsHit || !IsVisible) return;
+
+        IsHit = true;
+        _gameManager.AddPoint();
+
+        Vector3 originalScale = transform.localScale;
+        transform.localScale *= 0.8f;
+        transform.DOScale(originalScale, 0.2f);
+
+        Hide(hideSpeed);
     }
 
-    private IEnumerator Wait(float delay, bool hidden)
+    private void OnCollisionEnter(Collision other)
     {
-        yield return new WaitForSeconds(delay);
-        if (hidden)
-        {
-            _isUp = false;  
-            _gameManager.DrawMole();
-        }
-        else Hide(_movingDuration);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Hammer"))
+        if (other.gameObject.CompareTag("Hammer"))
         {
             Hit();
         }
