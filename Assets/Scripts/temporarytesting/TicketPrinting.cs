@@ -8,9 +8,13 @@ public class TicketPrinting : MonoBehaviour
     [Header("Ticket Settings")]
     public GameObject ticketPrefab;
     public Transform spawnPoint; // An empty GameObject placed at the machine's ticket slot
-    public float printSpeed = 0.05f; // Time between each ticket printing
-    public float ejectionForce = 1f; // How hard the ticket is pushed out
-    public float ticketLength = 1.0f;
+    public float printSpeed = 0.2f; // Time between each ticket printing
+    public int ticketAmount = 30;
+
+    [Header("Tego lepiej nie zmieniaj")]
+    public float ejectionForce = 0.02f; // How hard the ticket is pushed out
+    public float ticketLength = 1.05f;
+    public float jointAngle = 30f;
 
     // Keeps track of the current uncollected chain
     private List<GameObject> currentTicketChain = new List<GameObject>();
@@ -22,7 +26,7 @@ public class TicketPrinting : MonoBehaviour
     /// 
     private void Start()
     {
-        StartPrintingTickets(30);
+        StartPrintingTickets(ticketAmount);
     }
     public void StartPrintingTickets(int amount)
     {
@@ -46,11 +50,11 @@ public class TicketPrinting : MonoBehaviour
                 HingeJoint joint = newTicket.AddComponent<HingeJoint>();
                 joint.connectedBody = lastSpawnedTicket;
 
-                joint.anchor = new Vector3(0, 0, 0.1f);
-                joint.connectedAnchor = new Vector3(0, 0, -0.1f);
+                joint.anchor = new Vector3(0, 0, 0.057f);
+                joint.connectedAnchor = new Vector3(0, 0, -0.057f);
 
                 joint.useLimits = true;
-                JointLimits limits = new JointLimits { min = -45, max = 45 };
+                JointLimits limits = new JointLimits { min = -jointAngle, max = jointAngle };
                 joint.limits = limits;
 
                 // UNFREEZE PREVIOUS: Let the previous ticket fall and dangle
