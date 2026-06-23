@@ -17,7 +17,7 @@ public class TicketPrinting : MonoBehaviour
     public float jointAngle = 30f;
 
     // Keeps track of the current uncollected chain
-    private List<GameObject> currentTicketChain = new List<GameObject>();
+    [SerializeField] private List<GameObject> currentTicketChain = new List<GameObject>();
     private Rigidbody lastSpawnedTicket;
 
     /// <summary>
