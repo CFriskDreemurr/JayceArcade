@@ -3,7 +3,12 @@ guid: 49c5ebb09ade9a745b202d8004714f8c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Thiccket
+    second: {fileID: 2100000, guid: fd8053b2f46a9b349812c3941d0f7333, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

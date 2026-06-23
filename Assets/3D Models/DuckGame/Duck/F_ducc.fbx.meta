@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ffef53cdb4a9c0142b2cb50becd4cf59
+guid: 44b9c2736eff6eb4a81ac395de517a51
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_ringo_01
-    second: {fileID: 2100000, guid: 2051dab93fb9a2446bbb4aa617699c78, type: 2}
+      name: beige
+    second: {fileID: 2100000, guid: 2386cfab7bb296f4c9d12872c5bbd22c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: beigedark
+    second: {fileID: 2100000, guid: 2616419a3a8a08e40a1dfba958fd60b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: beigelight
+    second: {fileID: 2100000, guid: dd93913d3c436e344b727cc88fa733ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: braun
+    second: {fileID: 2100000, guid: 2000c0e03b16a9742857d03e4f796411, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: grune
+    second: {fileID: 2100000, guid: ae756a608ace7bc4f86c14594451bca7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: yelro
+    second: {fileID: 2100000, guid: 7d84d97b531ef5044bba25c4569316a7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
