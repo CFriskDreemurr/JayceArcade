@@ -12,27 +12,34 @@ public class MoleGame : MonoBehaviour
     [SerializeField] private float moleHideDuration = 0.5f;
     [SerializeField] private float minMoleWaitTime = 0.5f;
     [SerializeField] private float maxMoleWaitTime = 1f;
-
+    [SerializeField] private float gameDuration;
+    
     private int _points = 0;
     private int _previousMole;
     private MoleBehaviour _cuurentActiveMoles;
+    private bool _isGameRunning = false;
+    
 
     private void Start()
     {
-        GameStart();
         pointText.text = _points.ToString();
     }
 
     public void GameStart()
     {
+        if (_isGameRunning) return; 
+
+        _isGameRunning = true;
         _points = 0;
         pointText.text = _points.ToString();
+
         StartCoroutine(PlayRound());
+        StartCoroutine(GameTimer());
     }
 
     private IEnumerator PlayRound()
     {
-        while (true)
+        while (_isGameRunning)
         {
             while (_cuurentActiveMoles != null) yield return null;
 
@@ -50,12 +57,12 @@ public class MoleGame : MonoBehaviour
 
             float startTime = Time.time;
             float moleWaitTime = Random.Range(minMoleWaitTime, maxMoleWaitTime);
-            while(_cuurentActiveMoles != null && !_cuurentActiveMoles.IsHit && (Time.time - startTime) < moleWaitTime)
+            while (_cuurentActiveMoles != null && !_cuurentActiveMoles.IsHit && (Time.time - startTime) < moleWaitTime)
             {
                 yield return null;
             }
 
-            if(_cuurentActiveMoles != null)
+            if (_cuurentActiveMoles != null)
             {
                 _cuurentActiveMoles.Hide(moleHideDuration);
                 _cuurentActiveMoles = null;
@@ -65,9 +72,29 @@ public class MoleGame : MonoBehaviour
         }
     }
 
+    private IEnumerator GameTimer()
+    {
+        yield return new WaitForSeconds(gameDuration);
+
+        _isGameRunning = false;
+
+        if (_cuurentActiveMoles != null)
+        {
+            _cuurentActiveMoles.Hide(moleHideDuration);
+            _cuurentActiveMoles = null;
+        }
+
+        GameEnds();
+    }
+
+    private void GameEnds()
+    {
+
+    }
 
     public void AddPoint()
     {
+        if (!_isGameRunning) return;
         _points++;
         pointText.text = _points.ToString();
     }
