@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5576920575189106465
+--- !u!114 &-7072132215524179641
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,25 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/New Event 2
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
   m_EditorClassIdentifier: 
-  Path: event:/New Event 2
-  Guid:
-    Data1: 1119968607
-    Data2: 1163214060
-    Data3: 1319861433
-    Data4: 884930439
-  Banks:
-  - {fileID: 5442409493041305297}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 600
---- !u!114 &-2143478919333302216
+  Path: vrbebe/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639183734808315763
+  FileSizes:
+  - Name: Desktop
+    Value: 86560
+  Exists: 1
+--- !u!114 &-2374581499560671553
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,16 +35,12 @@ MonoBehaviour:
   Path: vrbebe/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-<<<<<<< HEAD
   lastModified: 639183717723047325
-=======
-  lastModified: 639183729862051313
->>>>>>> origin/fmod
   FileSizes:
   - Name: Desktop
     Value: 814
   Exists: 1
---- !u!114 &-1676793384146099540
+--- !u!114 &-1026801608451317847
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,7 +59,7 @@ MonoBehaviour:
     Data3: -897241678
     Data4: -1935085484
   Banks:
-  - {fileID: 5442409493041305297}
+  - {fileID: -7072132215524179641}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -91,28 +80,24 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -2143478919333302216}
-  - {fileID: 5442409493041305297}
+  - {fileID: -2374581499560671553}
+  - {fileID: -7072132215524179641}
   EditorEvents:
-  - {fileID: -1676793384146099540}
-  - {fileID: -5576920575189106465}
+  - {fileID: -1026801608451317847}
+  - {fileID: 927736595204227399}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 5442409493041305297}
+  - {fileID: -7072132215524179641}
   StringsBanks:
-  - {fileID: -2143478919333302216}
+  - {fileID: -2374581499560671553}
   cacheVersion: 131860
-<<<<<<< HEAD
-  cacheTime: 639183717723047325
-=======
-  cacheTime: 639183729862051313
->>>>>>> origin/fmod
+  cacheTime: 639183734808315763
   SerializableEventsDict:
   - key: event:/New Event
     index: 0
   - key: event:/New Event 2
     index: 1
---- !u!114 &5442409493041305297
+--- !u!114 &927736595204227399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,18 +106,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/New Event 2
   m_EditorClassIdentifier: 
-  Path: vrbebe/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-<<<<<<< HEAD
-  lastModified: 639183717723047325
-=======
-  lastModified: 639183729862036252
->>>>>>> origin/fmod
-  FileSizes:
-  - Name: Desktop
-    Value: 86560
-  Exists: 1
+  Path: event:/New Event 2
+  Guid:
+    Data1: 1119968607
+    Data2: 1163214060
+    Data3: 1319861433
+    Data4: 884930439
+  Banks:
+  - {fileID: -7072132215524179641}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 600
