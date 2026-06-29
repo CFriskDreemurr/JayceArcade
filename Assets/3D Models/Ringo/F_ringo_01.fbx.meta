@@ -3,7 +3,12 @@ guid: ffef53cdb4a9c0142b2cb50becd4cf59
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_ringo_01
+    second: {fileID: 2100000, guid: 2051dab93fb9a2446bbb4aa617699c78, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
