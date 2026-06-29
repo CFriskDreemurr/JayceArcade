@@ -660,7 +660,7 @@ Assets/Plugins/FMOD/**/Info.plist text eol=lf";
                                 {
                                     listener.gameObject.AddComponent(typeof(StudioListener));
                                 }
-                                DestroyImmediate(unityListeners[i]);
+                                DestroyImmediate(unityListeners[i], true);
                                 EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
                                 Repaint();
                             }
