@@ -102,6 +102,7 @@ public class TicketPrinting : MonoBehaviour
 
         // Add to player score here! 
         Debug.Log($"Collected {ticketsCollected} tickets at once!");
+        PlayerManager.instance.AddTickets(ticketsCollected);
 
         // Destroy all tickets in the chain
         foreach (GameObject ticket in currentTicketChain)

@@ -89,7 +89,7 @@ public class MoleGame : MonoBehaviour
 
     private void GameEnds()
     {
-
+        //wydrukuj bilety
     }
 
     public void AddPoint()
