@@ -6,7 +6,7 @@ public class RingoGame : MonoBehaviour
     public static RingoGame Instance { get; private set; }
 
     private int _points;
-    [SerializeField] private TextMeshProUGUI pointsText;
+    //[SerializeField] private TextMeshProUGUI pointsText;
 
     private void Awake()
     {
@@ -17,12 +17,12 @@ public class RingoGame : MonoBehaviour
     public void GameStart()
     {
         _points = 0;
-        pointsText.text = "0";
+        //pointsText.text = "0";
     }
 
     public void GetPoints(int points)
     {
         _points += points;
-        pointsText.text = _points.ToString();
+        //pointsText.text = _points.ToString();
     }
 }

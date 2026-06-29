@@ -7,7 +7,7 @@ public class Ticket : MonoBehaviour
 
     // Example using Mouse Click. 
     // If you are using Raycasts or an Interaction system, call CollectTickets() from there instead.
-    private void OnMouseDown()
+    public void GrabTicket()
     {
         if (machineReference != null)
         {
