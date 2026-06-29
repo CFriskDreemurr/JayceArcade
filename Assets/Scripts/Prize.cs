@@ -5,7 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 public class Prize : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI prizeText;
-    [SerializeField] private float prizeValue;
+    [SerializeField] private int prizeValue;
 
     private Rigidbody _rb;
     private XRGrabInteractable grabInteract;
@@ -15,8 +15,7 @@ public class Prize : MonoBehaviour
         prizeText.text = prizeValue.ToString();
         _rb = GetComponent<Rigidbody>();
         BlockReward();
-        // podpiêcie pod event zgarniêcia biletów 
-        // podpiêcie pod wydanie ticketów
+        Events.OnTicketsChange += CheckTickets;
     }
 
     
@@ -24,7 +23,7 @@ public class Prize : MonoBehaviour
     {
         if(_rb.isKinematic)
         {
-            //minus tickets
+            PlayerManager.instance.SubstractTickets(prizeValue);
             // Remove stand on prizeWall
         }
     }
@@ -36,16 +35,17 @@ public class Prize : MonoBehaviour
 
     private void UnlockReward()
     {
-        // if(tickety gracza >= prize Value)
-        grabInteract.interactionLayers = int.MaxValue;
+        if(PlayerManager.instance.tickets >= prizeValue) grabInteract.interactionLayers = int.MaxValue;
     }
     
     private void CheckTickets()
     {
-        // if(tickety gracza >= prize Value)
-        UnlockReward();
-        // else
-        BlockReward();
+        if (PlayerManager.instance.tickets >= prizeValue) UnlockReward();
+        else BlockReward();
+    }
 
+    private void OnDisable()
+    {
+        Events.OnTicketsChange -= CheckTickets;
     }
 }
