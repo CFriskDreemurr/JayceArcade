@@ -362,33 +362,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4266640295717640281, guid: beb4e2871579447497fe41dfb108e2cd, type: 3}
   m_PrefabInstance: {fileID: 214521702}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &128855624 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1911087055957687163, guid: fc5cbc7eadeefbd4bb0379ace8cefec5, type: 3}
-  m_PrefabInstance: {fileID: 2032629679}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &128855628
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 128855624}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3255233700049226662, guid: 442ce99d22fe65c4f8c382e0373471c1, type: 3}
 --- !u!1 &139338751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1152,6 +1125,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1273231188}
     m_Modifications:
+    - target: {fileID: 1118732795846306566, guid: 8869e099c40eaca41b253bd6ed342cff, type: 3}
+      propertyPath: bottleManager
+      value: 
+      objectReference: {fileID: 1273231191}
+    - target: {fileID: 1118732795846306566, guid: 8869e099c40eaca41b253bd6ed342cff, type: 3}
+      propertyPath: velocityThreshold
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3925572226901746529, guid: 8869e099c40eaca41b253bd6ed342cff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1240,6 +1221,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1273231188}
     m_Modifications:
+    - target: {fileID: 1118732795846306566, guid: 8869e099c40eaca41b253bd6ed342cff, type: 3}
+      propertyPath: bottleManager
+      value: 
+      objectReference: {fileID: 1273231191}
+    - target: {fileID: 1118732795846306566, guid: 8869e099c40eaca41b253bd6ed342cff, type: 3}
+      propertyPath: velocityThreshold
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3925572226901746529, guid: 8869e099c40eaca41b253bd6ed342cff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2978,6 +2967,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1273231188}
     m_Modifications:
+    - target: {fileID: 1118732795846306566, guid: 8869e099c40eaca41b253bd6ed342cff, type: 3}
+      propertyPath: bottleManager
+      value: 
+      objectReference: {fileID: 1273231191}
+    - target: {fileID: 1118732795846306566, guid: 8869e099c40eaca41b253bd6ed342cff, type: 3}
+      propertyPath: velocityThreshold
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3925572226901746529, guid: 8869e099c40eaca41b253bd6ed342cff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4308,6 +4305,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1273231188}
     m_Modifications:
+    - target: {fileID: 1118732795846306566, guid: 8869e099c40eaca41b253bd6ed342cff, type: 3}
+      propertyPath: bottleManager
+      value: 
+      objectReference: {fileID: 1273231191}
+    - target: {fileID: 1118732795846306566, guid: 8869e099c40eaca41b253bd6ed342cff, type: 3}
+      propertyPath: velocityThreshold
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3925572226901746529, guid: 8869e099c40eaca41b253bd6ed342cff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4721,6 +4726,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1273231188}
     m_Modifications:
+    - target: {fileID: 1118732795846306566, guid: 8869e099c40eaca41b253bd6ed342cff, type: 3}
+      propertyPath: bottleManager
+      value: 
+      objectReference: {fileID: 1273231191}
+    - target: {fileID: 1118732795846306566, guid: 8869e099c40eaca41b253bd6ed342cff, type: 3}
+      propertyPath: velocityThreshold
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3925572226901746529, guid: 8869e099c40eaca41b253bd6ed342cff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4786,6 +4799,7 @@ GameObject:
   - component: {fileID: 1273231188}
   - component: {fileID: 1273231190}
   - component: {fileID: 1273231189}
+  - component: {fileID: 1273231191}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -4858,6 +4872,26 @@ MonoBehaviour:
   - {fileID: 1115254847}
   trashOutPoint: {fileID: 139338752}
   pointCounter: 0
+--- !u!114 &1273231191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273231187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328ff7a51dfe60845b8eff9b32cfc22e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactEvent:
+    Guid:
+      Data1: 1512149445
+      Data2: 1304783117
+      Data3: 320362655
+      Data4: -372645375
+    Path: event:/Glass
+  cooldown: 10
 --- !u!1 &1280077206
 GameObject:
   m_ObjectHideFlags: 0
@@ -6181,6 +6215,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1273231188}
     m_Modifications:
+    - target: {fileID: 1118732795846306566, guid: 8869e099c40eaca41b253bd6ed342cff, type: 3}
+      propertyPath: bottleManager
+      value: 
+      objectReference: {fileID: 1273231191}
+    - target: {fileID: 1118732795846306566, guid: 8869e099c40eaca41b253bd6ed342cff, type: 3}
+      propertyPath: velocityThreshold
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3925572226901746529, guid: 8869e099c40eaca41b253bd6ed342cff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7673,9 +7715,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1911087055957687163, guid: fc5cbc7eadeefbd4bb0379ace8cefec5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 128855628}
     - targetCorrespondingSourceObject: {fileID: 8001616585091331092, guid: fc5cbc7eadeefbd4bb0379ace8cefec5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1395392580}
