@@ -42,11 +42,38 @@ MonoBehaviour:
   Path: vrbebe/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639183925502569028
+  lastModified: 639184098477517371
   FileSizes:
   - Name: Desktop
-    Value: 191584
+    Value: 255360
   Exists: 1
+--- !u!114 &-4872134189096217619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/HammerTime
+  m_EditorClassIdentifier: 
+  Path: event:/HammerTime
+  Guid:
+    Data1: -256274819
+    Data2: 1298386215
+    Data3: 219037360
+    Data4: -1118615898
+  Banks:
+  - {fileID: -5422530350728795898}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2200
 --- !u!114 &-2603372968358961088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,13 +140,15 @@ MonoBehaviour:
   - {fileID: 3099011892603609423}
   - {fileID: -2603372968358961088}
   - {fileID: -9216990333965119745}
+  - {fileID: 6635012995364308500}
+  - {fileID: -4872134189096217619}
   EditorParameters: []
   MasterBanks:
   - {fileID: -5422530350728795898}
   StringsBanks:
   - {fileID: 5244820693710436245}
   cacheVersion: 131860
-  cacheTime: 639183925502579102
+  cacheTime: 639184098477542650
   SerializableEventsDict:
   - key: event:/Bol
     index: 0
@@ -127,6 +156,10 @@ MonoBehaviour:
     index: 1
   - key: event:/Glass
     index: 2
+  - key: event:/BebeHamma
+    index: 3
+  - key: event:/HammerTime
+    index: 4
 --- !u!114 &3099011892603609423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,8 +203,35 @@ MonoBehaviour:
   Path: vrbebe/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639183925502579102
+  lastModified: 639184098477542650
   FileSizes:
   - Name: Desktop
-    Value: 852
+    Value: 944
   Exists: 1
+--- !u!114 &6635012995364308500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BebeHamma
+  m_EditorClassIdentifier: 
+  Path: event:/BebeHamma
+  Guid:
+    Data1: -566485903
+    Data2: 1111550984
+    Data3: 518086072
+    Data4: 986879006
+  Banks:
+  - {fileID: -5422530350728795898}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2200
