@@ -5,7 +5,7 @@
 			<value>HammerTime</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{3263d35a-280d-4393-82ff-0b46810f0056}</destination>
@@ -117,6 +117,7 @@
 	<object class="MixerBusEffectChain" id="{82c9ecd3-94a2-404f-b4b3-0c600d24423e}">
 		<relationship name="effects">
 			<destination>{969deb04-3457-4d40-aa96-b92954217d84}</destination>
+			<destination>{7025cb34-245b-4e83-91c8-b594e716b151}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{7c875ab9-ea09-438b-a2cc-4128dfa6a139}" />
@@ -153,5 +154,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{c3069828-7fb3-4e69-8c20-8a4eca43b7a3}" />
 	<object class="MixerBusFader" id="{969deb04-3457-4d40-aa96-b92954217d84}" />
+	<object class="SpatialiserEffect" id="{7025cb34-245b-4e83-91c8-b594e716b151}" />
 	<object class="MixerBusFader" id="{2e64ad3e-ae87-4660-b202-0a28606ac9b9}" />
 </objects>

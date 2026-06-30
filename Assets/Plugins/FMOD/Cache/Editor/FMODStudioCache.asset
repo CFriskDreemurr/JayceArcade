@@ -21,7 +21,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 5163065989644999324}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -75,7 +75,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 5163065989644999324}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -109,7 +109,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 7678916519206093456}
   cacheVersion: 131860
-  cacheTime: 639184182105353721
+  cacheTime: 639184300613687806
   SerializableEventsDict:
   - key: event:/Bol
     index: 0
@@ -165,10 +165,10 @@ MonoBehaviour:
   Path: vrbebe/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639184182105353721
+  lastModified: 639184300613672550
   FileSizes:
   - Name: Desktop
-    Value: 256000
+    Value: 256576
   Exists: 1
 --- !u!114 &5830683173227321997
 MonoBehaviour:
@@ -212,7 +212,7 @@ MonoBehaviour:
   Path: vrbebe/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639184182105353721
+  lastModified: 639184300613687806
   FileSizes:
   - Name: Desktop
     Value: 976

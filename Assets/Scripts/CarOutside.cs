@@ -8,7 +8,8 @@ public class CarOutside : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private Transform pointToGo;
     [SerializeField] private float carSpeed;
-    [SerializeField] float spawnInterval = 30f;
+    [SerializeField] private float spawnMinTime = 10f; 
+    [SerializeField] private float spawnMaxTime = 30f;
 
     void Start()
     {
@@ -21,7 +22,8 @@ public class CarOutside : MonoBehaviour
         {
             SpawnObject();
 
-            yield return new WaitForSeconds(spawnInterval);
+            float spawnInterwal = Random.Range(spawnMinTime, spawnMaxTime);
+            yield return new WaitForSeconds(spawnInterwal);
         }
     }
 

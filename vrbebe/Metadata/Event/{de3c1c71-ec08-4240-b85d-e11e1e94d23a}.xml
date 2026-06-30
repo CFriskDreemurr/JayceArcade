@@ -5,7 +5,7 @@
 			<value>BebeHamma</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{3263d35a-280d-4393-82ff-0b46810f0056}</destination>
@@ -160,6 +160,7 @@
 	<object class="MixerBusEffectChain" id="{85b68826-b66b-49ce-b9df-a681db9b9db7}">
 		<relationship name="effects">
 			<destination>{1445a3ed-9b13-41ab-8285-0763070fae01}</destination>
+			<destination>{e703488c-01c2-4d65-bda9-e0a8d58f6884}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{67c287f3-770f-4554-b358-a771e8a5c910}" />
@@ -232,6 +233,7 @@
 	</object>
 	<object class="MixerBusPanner" id="{74ca5595-09cd-445d-812b-bf231e7915e8}" />
 	<object class="MixerBusFader" id="{1445a3ed-9b13-41ab-8285-0763070fae01}" />
+	<object class="SpatialiserEffect" id="{e703488c-01c2-4d65-bda9-e0a8d58f6884}" />
 	<object class="MixerBusFader" id="{305fc1f1-a92c-438e-91aa-f173d6ba3ab3}" />
 	<object class="MixerBusFader" id="{8d40bd02-f45a-4725-b48f-c4bd34530e62}" />
 </objects>
