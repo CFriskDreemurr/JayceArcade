@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{376a7770-7a0e-4c79-b6a6-3ac3fbbf409e}">
+		<property name="assetPath">
+			<value>bol/bol.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>30.128499999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{26ac8d95-7856-49fe-b3b5-4e28268e50fb}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -73,6 +73,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cbc575bf912f2f4facc2e27d9025f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocityThreshold: 10
+  bottleManager: {fileID: 0}
 --- !u!1001 &3160472726964908274
 PrefabInstance:
   m_ObjectHideFlags: 0

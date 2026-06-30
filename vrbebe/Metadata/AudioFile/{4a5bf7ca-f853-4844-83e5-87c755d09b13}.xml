@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{4a5bf7ca-f853-4844-83e5-87c755d09b13}">
+		<property name="assetPath">
+			<value>bol/bol - Trimmed (3) - Trimmed.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.45000000000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{26ac8d95-7856-49fe-b3b5-4e28268e50fb}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -7,19 +7,20 @@ public class hammerBall : MonoBehaviour
     [SerializeField] private float duration;
 
     private bool blocker;
-    private HammerMachineHitPlace HMHP;
+    [SerializeField] private HammerMachineHitPlace HMHP;
     private Vector3 startingPos;
 
     private void Start()
     {
-        HMHP = GetComponentInParent<HammerMachineHitPlace>();
+        
         startingPos = transform.position;
     }
 
     public void MoveToThePosition(float height)
     {
         HMHP.blocker = true;
-        transform.DOMoveY(height, duration).OnComplete(() => StartCoroutine(WaitOnTop(1)));
+        float finalDest = startingPos.y + height;
+        transform.DOMoveY(finalDest, duration).OnComplete(() => StartCoroutine(WaitOnTop(1)));
     }
 
     IEnumerator WaitOnTop(float seconds)

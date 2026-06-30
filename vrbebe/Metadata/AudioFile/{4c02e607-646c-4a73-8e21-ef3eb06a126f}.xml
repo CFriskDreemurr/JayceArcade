@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{4c02e607-646c-4a73-8e21-ef3eb06a126f}">
+		<property name="assetPath">
+			<value>glAss/glass1.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>65.596979166666671</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{26ac8d95-7856-49fe-b3b5-4e28268e50fb}</destination>
+		</relationship>
+	</object>
+</objects>
