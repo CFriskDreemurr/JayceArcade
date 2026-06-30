@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3925572226901746529}
   - component: {fileID: 1512602046193978760}
   - component: {fileID: 1118732795846306566}
+  - component: {fileID: 4502107962184563939}
   m_Layer: 0
   m_Name: P_bottle_01
   m_TagString: Bottle
@@ -73,6 +74,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cbc575bf912f2f4facc2e27d9025f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4502107962184563939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680637378897964011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328ff7a51dfe60845b8eff9b32cfc22e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactEvent:
+    Guid:
+      Data1: 1512149445
+      Data2: 1304783117
+      Data3: 320362655
+      Data4: -372645375
+    Path: event:/Glass
+  velocityThreshold: 10
 --- !u!1001 &3160472726964908274
 PrefabInstance:
   m_ObjectHideFlags: 0
