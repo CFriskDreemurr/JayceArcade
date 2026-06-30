@@ -4,11 +4,11 @@ using System.Collections;
 
 public class CarOutside : MonoBehaviour
 {
-    public List<GameObject> objectsToSpawn;
+    [SerializeField] List<GameObject> objectsToSpawn;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private Transform pointToGo;
-
-    public float spawnInterval = 30f;
+    [SerializeField] private float carSpeed;
+    [SerializeField] float spawnInterval = 30f;
 
     void Start()
     {
@@ -29,6 +29,11 @@ public class CarOutside : MonoBehaviour
     {
         int index = Random.Range(0, objectsToSpawn.Count);
 
-        
+        GameObject car = Instantiate(objectsToSpawn[index], spawnPoint.position, spawnPoint.rotation);
+
+        if(car.TryGetComponent<Car>(out var carStart))
+        {
+            carStart.Initialize(pointToGo, carSpeed);
+        }
     }
 }

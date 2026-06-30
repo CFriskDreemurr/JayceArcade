@@ -5,13 +5,15 @@ public class HammerMachineHitPlace : MonoBehaviour
 {
     private float hammerMass;
     private float minVelocity = 1f;
-    private hammerBall _ball;
+    [SerializeField] private hammerBall _ball;
+
+    private TicketPrinting _printer;
 
     public bool blocker;
 
     private void Start()
     {
-        _ball = GetComponentInChildren<hammerBall>();
+        _printer = GetComponentInChildren<TicketPrinting>();
         blocker = false;
     }
 
@@ -42,8 +44,18 @@ public class HammerMachineHitPlace : MonoBehaviour
         float FinalForce = velocity * hammerMass;
 
         int score = Mathf.RoundToInt(FinalForce * 100);
-        _ball.MoveToThePosition(score/1000);
-
+        if (score/1000 > 10)
+        {
+            _ball.MoveToThePosition(4);
+            _printer.StartPrintingTickets(20);
+        }
+        else
+        {
+            _ball.MoveToThePosition(score / 1000);
+            _printer.StartPrintingTickets((score/1000)*5);
+        }
+       
+        
         Debug.Log($"Hammer mass: {hammerMass} | Final Score: {score}");
     }
 }
