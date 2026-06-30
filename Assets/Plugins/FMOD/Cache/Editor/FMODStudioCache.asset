@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: vrbebe/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639183918338270767
+  lastModified: 639183925502569028
   FileSizes:
   - Name: Desktop
     Value: 191584
@@ -119,7 +119,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 5244820693710436245}
   cacheVersion: 131860
-  cacheTime: 639183918338270767
+  cacheTime: 639183925502579102
   SerializableEventsDict:
   - key: event:/Bol
     index: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   Path: vrbebe/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639183918338270767
+  lastModified: 639183925502579102
   FileSizes:
   - Name: Desktop
     Value: 852

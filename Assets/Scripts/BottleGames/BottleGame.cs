@@ -11,10 +11,12 @@ public class BottleGame : MonoBehaviour
     private float waitingTime = 5f;
     private float currentTime = 0;
     private bool timerWorking = false;
+    private TicketPrinting _printer;
 
     void Start()
     {
         pointCounter = 0;
+        _printer = GetComponentInChildren<TicketPrinting>();
     }
 
     // Update is called once per frame
@@ -65,7 +67,7 @@ public class BottleGame : MonoBehaviour
         }
 
         objectToThrowOut.Clear();
-        // PrintTicets(pointCounter);
+        _printer.StartPrintingTickets(pointCounter);
         pointCounter = 0;
     }
 
