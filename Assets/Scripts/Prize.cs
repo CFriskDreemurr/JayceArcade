@@ -9,23 +9,29 @@ public class Prize : MonoBehaviour
 
     private Rigidbody _rb;
     private XRGrabInteractable grabInteract;
+    private bool bought = false;
 
     void Start()
     {
         prizeText.text = prizeValue.ToString();
         _rb = GetComponent<Rigidbody>();
+        grabInteract = GetComponent<XRGrabInteractable>();
         BlockReward();
         Events.OnTicketsChange += CheckTickets;
+        CheckTickets();
     }
 
     
-    void Update()
+    public void BuyItem()
     {
-        if(_rb.isKinematic)
-        {
+        if(!bought)
+        { 
             PlayerManager.instance.SubstractTickets(prizeValue);
-            // Remove stand on prizeWall
+            prizeValue = 0;
+            Events.ItemBought();
+            bought = true;  
         }
+
     }
 
     private void BlockReward()

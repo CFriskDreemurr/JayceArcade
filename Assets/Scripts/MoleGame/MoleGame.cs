@@ -18,11 +18,13 @@ public class MoleGame : MonoBehaviour
     private int _previousMole;
     private MoleBehaviour _cuurentActiveMoles;
     private bool _isGameRunning = false;
+    private TicketPrinting printer;
     
 
     private void Start()
     {
         pointText.text = _points.ToString();
+        printer = GetComponentInChildren<TicketPrinting>(); 
     }
 
     public void GameStart()
@@ -89,7 +91,10 @@ public class MoleGame : MonoBehaviour
 
     private void GameEnds()
     {
-        //wydrukuj bilety
+        printer.StartPrintingTickets(_points);
+
+        _points = 0;
+        pointText.text = _points.ToString();
     }
 
     public void AddPoint()
