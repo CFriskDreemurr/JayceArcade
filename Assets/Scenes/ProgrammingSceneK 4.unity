@@ -7283,7 +7283,7 @@ MonoBehaviour:
     Path: event:/BebeHamma
   impactParameterName: SwingForce
   hammerHead: {fileID: 568575054}
-  velocityThreshold: 2
+  velocityThreshold: 5
   hitCooldown: 0.2
 --- !u!1001 &1062849359
 PrefabInstance:
@@ -11709,7 +11709,7 @@ MonoBehaviour:
     Path: event:/HammerTime
   impactParameterName: SwingForce
   hammerHead: {fileID: 1031098360}
-  velocityThreshold: 2
+  velocityThreshold: 5
   hitCooldown: 0.2
 --- !u!1001 &1724565740
 PrefabInstance:
