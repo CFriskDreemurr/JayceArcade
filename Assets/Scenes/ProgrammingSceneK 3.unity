@@ -7878,7 +7878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8135023674665499069, guid: 58d0a4ac86f2348deb02f3880c71378e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8518324294302271954, guid: 58d0a4ac86f2348deb02f3880c71378e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9687,7 +9687,7 @@ MonoBehaviour:
       Data2: 1163214060
       Data3: 1319861433
       Data4: 884930439
-    Path: event:/New Event 2
+    Path: event:/Footsteps
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 0
@@ -11910,7 +11910,7 @@ MonoBehaviour:
       Data2: 1163214060
       Data3: 1319861433
       Data4: 884930439
-    Path: event:/New Event 2
+    Path: event:/Footsteps
   vrCamera: {fileID: 9014170783777442264}
   stepDistance: 1.5
   groundLayer:

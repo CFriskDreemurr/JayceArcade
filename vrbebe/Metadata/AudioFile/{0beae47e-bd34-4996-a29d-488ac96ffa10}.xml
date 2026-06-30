@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{0beae47e-bd34-4996-a29d-488ac96ffa10}">
 		<property name="assetPath">
-			<value>feetsiez - Trimmed (8).wav</value>
+			<value>feet/feetsiez - Trimmed (8).wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
