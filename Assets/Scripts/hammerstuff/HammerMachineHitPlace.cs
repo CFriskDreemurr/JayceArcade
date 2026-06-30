@@ -44,15 +44,15 @@ public class HammerMachineHitPlace : MonoBehaviour
         float FinalForce = velocity * hammerMass;
 
         int score = Mathf.RoundToInt(FinalForce * 100);
-        if (score/1000 > 10)
+        if (score/1000 > 4)
         {
             _ball.MoveToThePosition(4);
-            _printer.StartPrintingTickets(20);
+            _printer.StartPrintingTickets(8);
         }
         else
         {
             _ball.MoveToThePosition(score / 1000);
-            _printer.StartPrintingTickets((score/1000)*5);
+            _printer.StartPrintingTickets((score/1000)*2);
         }
        
         

@@ -11,7 +11,7 @@ public class RingoStick : MonoBehaviour
 {
     [SerializeField] private StickTypes stickType;
     [SerializeField] private TicketPrinting printer;
-    private int basePoints = 10;
+    private int basePoints = 2;
 
 
     private void OnTriggerEnter(Collider other)

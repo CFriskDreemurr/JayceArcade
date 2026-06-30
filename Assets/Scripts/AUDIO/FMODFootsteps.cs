@@ -43,6 +43,7 @@ public class VRFootsteps : MonoBehaviour
         // When the player has moved the length of a stride, play a step
         if (distanceMoved >= stepDistance)
         {
+            Debug.Log("stepping");
             PlayFootstep();
             distanceMoved = 0f;
         }
@@ -50,19 +51,32 @@ public class VRFootsteps : MonoBehaviour
 
     void PlayFootstep()
     {
-        // Raycast straight down from the headset to detect the ground
+        // Raycast prosto w dó³ z gogli, aby wykryæ pod³ogê
         if (Physics.Raycast(vrCamera.position, Vector3.down, out RaycastHit hit, raycastLength, groundLayer))
         {
+            Debug.Log("stomp stomp");
 
-            // Create the FMOD event instance
-            FMOD.Studio.EventInstance footstep = RuntimeManager.CreateInstance(footstepEvent);
-
-            // Set the audio position to the ground, directly below the player
+            // Ustaw pozycjê dŸwiêku na ziemi (na wysokoœci punktu uderzenia raycasta)
             Vector3 footPosition = vrCamera.position;
             footPosition.y = hit.point.y;
-            // Apply the surface parameter, play, and clean up
+
+            // Opcja A (Zalecana): Proste odtworzenie dŸwiêku
+            RuntimeManager.PlayOneShot(footstepEvent, footPosition);
+
+            /* // Opcja B: Jeœli w przysz³oœci bêdziesz chcia³ ustawiaæ parametry (np. rodzaj nawierzchni):
+            FMOD.Studio.EventInstance footstep = RuntimeManager.CreateInstance(footstepEvent);
+
+            // TEJ LINIJKI BRAKOWA£O W TWOIM KODZIE:
+            footstep.set3DAttributes(RuntimeUtils.To3DAttributes(footPosition));
+
+            // footstep.setParameterByName("Surface", 1f); 
             footstep.start();
             footstep.release();
+            */
+        }
+        else
+        {
+            Debug.LogWarning("Raycast nie trafi³ w pod³ogê! DŸwiêk kroku nie zostanie odtworzony.");
         }
     }
 
