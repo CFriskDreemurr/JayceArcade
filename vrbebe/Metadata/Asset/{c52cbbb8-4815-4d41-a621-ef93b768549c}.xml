@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{c52cbbb8-4815-4d41-a621-ef93b768549c}">
+		<property name="assetPath">
+			<value>BONK/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{26ac8d95-7856-49fe-b3b5-4e28268e50fb}</destination>
+		</relationship>
+	</object>
+</objects>
