@@ -10,7 +10,7 @@ public enum StickTypes
 public class RingoStick : MonoBehaviour
 {
     [SerializeField] private StickTypes stickType;
-
+    [SerializeField] private TicketPrinting printer;
     private int basePoints = 10;
 
 
@@ -22,15 +22,18 @@ public class RingoStick : MonoBehaviour
             {
                 case StickTypes.Normal:
                     RingoGame.Instance.GetPoints(basePoints);
+                    printer.StartPrintingTickets(basePoints);
                     break;
 
                 case StickTypes.Double:
                     RingoGame.Instance.GetPoints(basePoints * 2);
+                    printer.StartPrintingTickets(basePoints * 2);
                     break;
 
                 case StickTypes.Triple:
                     RingoGame.Instance.GetPoints(basePoints * 3);
-                        break;
+                    printer.StartPrintingTickets(basePoints * 3);
+                    break;
 
             }
         }
