@@ -10,19 +10,15 @@ public class ShopKeeper : MonoBehaviour
 
     private bool state;
 
-    private void Start()
+    void Awake()
     {
-
+        Events.OnItemBought += ItemBoughtFromShop;
     }
     
-    void Update()
+
+    private void ItemBoughtFromShop()
     {
-        if(Input.GetKeyDown(KeyCode.Z))
-        {
-            Debug.Log("Click");
-            
-            StartCoroutine(WaitAfterBlush(2));
-        }
+        StartCoroutine(WaitAfterBlush(2));
     }
 
     private void SetupBuy()
@@ -56,5 +52,10 @@ public class ShopKeeper : MonoBehaviour
         SetupBuy();
         yield return new WaitForSeconds(seconds);
         SetupNeutral();
+    }
+
+    private void OnDisable()
+    {
+        Events.OnItemBought += ItemBoughtFromShop;
     }
 }

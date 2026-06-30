@@ -26,7 +26,7 @@ public class TicketPrinting : MonoBehaviour
     /// 
     private void Start()
     {
-        StartPrintingTickets(ticketAmount);
+        
     }
     public void StartPrintingTickets(int amount)
     {
